@@ -1,12 +1,14 @@
-# gulp-automation-boilerplate
+# gulp-es6-rollup-boilerplate
 
 > Project tested with node v 6.2.2
 
-A very basic boilerplate to start your Javascript project ideally with [ES6](https://babeljs.io/docs/learn-es2015/) [Rollup](http://rollupjs.org/) and [Less](http://lesscss.org/) css preprocessor.
+A very basic boilerplate to start your Javascript project ideally with [ES6](https://babeljs.io/docs/learn-es2015/) script [Rollup](http://rollupjs.org/) module bundler and [Less](http://lesscss.org/) css preprocessor.
 
-- The aim of this package is to start basic web project which usually have JS and css (less css) files, build them for release by compiling ES2015 code and concatenate js and css files into single bundle.
+- The aim of this package is to start basic web project which usually have JS and css (less css) files, build them for release by compiling ES2015 code and concatenate multiple js and css files into single bundle.
 
-- This boilerplate uses `Rollup` module bundler which makes bundler more efficient that `browserify` or `webpacks` as it bundles minimal code and ignore unused modules to get bundled ___see Example Code Explanation at the end___.
+- This boilerplate uses `Rollup` module bundler which makes bundler more efficient than `browserify` or `webpack` as it bundles minimal code and ignore unused modules to get bundled ___see Example Code Explanation at the end___.
+
+> Normally if you require a module, you import the whole thing. ES2015 lets you just import the bits you need, without mucking around with custom builds. It's a revolution in how we use libraries in JavaScript, and it's happening right now.
 
 - Bundling done with simple commands using [Gulp](http://gulpjs.com/) which is famous build system to automate build process.
 
