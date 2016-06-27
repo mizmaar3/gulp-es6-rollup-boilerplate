@@ -8,25 +8,25 @@ var uglify = require('gulp-uglify');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-var rollup = require( 'rollup' );
+var rollup = require('rollup');
 var rollupUglify = require('rollup-plugin-uglify');
+var gulpif = require('gulp-if');
 
+var isRelease = false;
 
-gulp.task('babelfy', function() {
-  return gulp.src('js/*.*!js/main.rollup.js')
-    .pipe(babel({
-      presets: ['es2016']
-    }))
-    .pipe(gulp.dest('./temp/'));
+gulp.task('setIsRelease', function() {
+  isRelease = true;
 });
 
-gulp.task('rollup', ['babelfy'], function() {
+
+gulp.task('rollup', function() {
   rollup.rollup({
-    entry: 'js/main.rollup.js',
+    entry: './js/main.rollup.js',
     plugins: [
-      rollupUglify()
+      gulpif(isRelease, rollupUglify())
     ]
-  }).then( function ( bundle ) {
+  })
+  .then( function ( bundle ) {
     bundle.write({
       format: 'iife',
       dest: 'dist/bundle.js'
@@ -61,3 +61,5 @@ gulp.task('watch', function() {
 
 
 gulp.task('default', ['rollup', 'css', 'watch']);
+gulp.task('build', ['rollup', 'css', 'watch']);
+gulp.task('release', ['setIsRelease', 'build']);
