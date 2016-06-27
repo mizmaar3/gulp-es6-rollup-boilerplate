@@ -1,1 +1,16 @@
-!function(){"use strict";function n(n){var o=n*n;return"Cube of "+n+": "+o}function o(n){return"Your name is "+n}console.log(n(3)),console.log(o("Usman"))}();
+(function () {
+  'use strict';
+
+  function cube (x) {
+    var cube = x * x;
+    return "Cube of " + x + ": " + cube;
+  };
+
+  function name(name) {
+    return "Your name is " + name;
+  };
+
+  console.log(cube(3));
+  console.log(name('Usman'));
+
+}());

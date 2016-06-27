@@ -2,9 +2,11 @@
 
 > Project tested with node v 6.2.2
 
-A very basic boilerplate to start your Javascript project ideally with [ES6](https://babeljs.io/docs/learn-es2015/) and [Less](http://lesscss.org/) css preprocessor.
+A very basic boilerplate to start your Javascript project ideally with [ES6](https://babeljs.io/docs/learn-es2015/) [Rollup](http://rollupjs.org/) and [Less](http://lesscss.org/) css preprocessor.
 
 - The aim of this package is to start basic web project which usually have JS and css (less css) files, build them for release by compiling ES2015 code and concatenate js and css files into single bundle.
+
+- This boilerplate uses `Rollup` module bundler which makes bundler more efficient that `browserify` or `webpacks` as it bundles minimal code and ignore unused modules to get bundled ___see Example Code Explanation at the end___.
 
 - Bundling done with simple commands using [Gulp](http://gulpjs.com/) which is famous build system to automate build process.
 
@@ -14,7 +16,7 @@ A very basic boilerplate to start your Javascript project ideally with [ES6](htt
 First, clone the repo via git:
 
 ```bash
-git clone https://github.com/mizmaar3/gulp-automation-boilerplate your-project-name
+git clone https://github.com/mizmaar3/gulp-es6-rollup-boilerplate your-project-name
 ```
 
 And then install dependencies.
@@ -38,6 +40,13 @@ or simple run
 $ gulp
 ```
 
+To get minified+uglified version of bundle.js please run
+
+```bash
+$ npm run release
+```
+
+
 inside your project folder
 
 
@@ -49,7 +58,7 @@ To start local server please run
 $ npm run start
 ```
 
-and goto http://127.0.0.1:9400 to test if code worked. You should get some text on the page.
+and goto http://127.0.0.1:9800 to test if code worked. You should get some text on the page.
 
 
 ## DevTools
@@ -65,7 +74,7 @@ and goto http://127.0.0.1:9400 to test if code worked. You should get some text 
 
 #### The JS folder
 
-- JS folder contains two js files `script1.jsx` which has an `ES6` arrow function and `script2.js` which have simple javascript function. Both will be compiled with `Babel.js` using `ES2015` presents and minified in single `main.js` file inside `dist` folder after building the project.
+- So basically JS folder contains three files. The main file is `main.rollup.js` and ´math.js & person.js´ are utility functions used in main files. Both util files have two utility functions each exported as modules. The `main.rollup.js` only using one module from each utility file and `Rollup` bundler will only include those two functions in bundler.js which are used by `main.rollup.js` and will ignore rest.
 
 
 #### The LESS folder
