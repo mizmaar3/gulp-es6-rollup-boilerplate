@@ -1,6 +1,6 @@
 {
   "name": "gulp-es6-rollup-boilerplate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Boilerplate to start with simple JS project with automation",
   "main": "main.js",
   "author": {
@@ -40,11 +40,10 @@
     "ES6",
     "ES2015",
     "babel",
-    "Automation",
-    "Browserify"
+    "Automation"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mizmaar3/gulp-automation-boilerplate.git"
+    "url": "git+https://github.com/mizmaar3/gulp-es6-rollup-boilerplate.git"
   }
 }
